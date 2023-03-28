@@ -10,5 +10,13 @@ function uitvoerknopSpaties(){
     }
     document.getElementById("aantalSpaties").innerText = spaties;    
 }
+function checkLeeg(){
+    if (this.value === ""){
+        document.getElementById("knopSpaties").disabled=true;    
+    } else {
+        document.getElementById("knopSpaties").disabled=false;    
+    }
+}
 
 document.getElementById("knopSpaties").onclick = uitvoerknopSpaties;
+document.getElementById("tekst").oninput = checkLeeg;
