@@ -9,8 +9,9 @@ function meldingIsLeeg(){
     }
 }
 
-const spelers = document.getElementById("spelers");
-const spelersInput = spelers.getElementsByTagName("input");
+//const spelers = document.getElementById("spelers");
+//const spelersInput = spelers.getElementsByTagName("input");
+const spelersInput = document.querySelectorAll("#spelers input");
 for (const spelerInput of spelersInput) {
     spelerInput.onblur=meldingIsLeeg;
 }
