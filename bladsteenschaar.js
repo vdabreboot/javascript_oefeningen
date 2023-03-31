@@ -35,11 +35,12 @@ function keuzeComputer() {
     const keuzesComputer = document.querySelectorAll("#keuzesComputer img");
     let teller = 0;    
     for (const element of keuzesComputer) {
-        if (teller === computerKeuze) {
+        /*if (teller === computerKeuze) {
             element.hidden = false;
         } else {
             element.hidden = true;
-        }
+        }*/
+        element.hidden = (teller !== computerKeuze);
         teller++;
     }
 }
@@ -47,14 +48,14 @@ function keuzeComputer() {
 const keuzesSpeler = document.querySelectorAll("#keuzesSpeler img");
 
 for (const keuzeSpeler of keuzesSpeler) {
-    keuzeSpeler.onclick = function () {
-        this.classList.add("dunneKader");
-        let teller = 0;
+    keuzeSpeler.onclick = function () {        
+        //keuzeSpeler.forEach( f => f.classList.remove("dunneKader"));
+        this.classList.add("dunneKader");        
         for (const sibling of this.parentElement.children) {
             if (sibling != this)
-                sibling.classList.remove("dunneKader");
-            teller++;
+                sibling.classList.remove("dunneKader");            
         }
+        
         keuzeComputer();
         wieHeeftErGewonnen();
     };
