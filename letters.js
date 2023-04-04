@@ -9,16 +9,27 @@ async function zoeken(){
         while (lijst.children.length>0){
             lijst.children[0].remove();
         }
-        const data = await response.json();        
+        const data = await response.json();
             data.forEach(element => {
                 const naam = element.name;
+                localStorage.setItem("zoek",letters);
                 if(naam.includes(letters)){
+                    const newLink = document.createElement("a");
+                    newLink.innerText=element.name
+                    newLink.href = "#" //`/lettersdetail.html`
+                    newLink.onclick=klik;
+                    newLink.dataset.id = element.id;
                     const newLi = document.createElement("li");
-                    newLi.innerText = element.name;
+                    newLi.appendChild(newLink);
                     lijst.appendChild(newLi);
                 }
             });
-        
     }
 }
+function klik(){    
+    localStorage.setItem("id",this.dataset.id);
+    window.open("/lettersDetail.html");
+}
+
+document.getElementById("letters").value=localStorage.getItem("zoek");
 document.getElementById("zoeken").onclick=zoeken;
