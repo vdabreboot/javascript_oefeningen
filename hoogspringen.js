@@ -3,9 +3,13 @@
 function toevoegen(){    
     const naam = document.getElementById("naam");
     const hoogte = document.getElementById("hoogte");
-        
-    document.getElementById("feedbackNaam").hidden = naam.checkValidity()?true:false;
-    document.getElementById("feedbackHoogte").hidden = hoogte.checkValidity()?true:false;
+            
+    for (const element of document.querySelectorAll("input:invalid,select:invalid")) {        
+        document.getElementById(`${element.id}Fout`).hidden=false;
+    }
+    for (const element of document.querySelectorAll("`input:valid,select:valid")) {
+        document.getElementById(`${element.id}Fout`).hidden=true;
+    }
     
     if (naam.checkValidity() && hoogte.checkValidity()){
         const tr = document.createElement("tr");

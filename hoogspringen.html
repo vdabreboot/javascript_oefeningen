@@ -4,17 +4,18 @@
         <title>Hoogspringen</title>
         <script src="hoogspringen.js" defer></script>
         <link rel="ico" href="javascript.ico" type="image/x-icon">
-        <link rel="stylesheet" href="default.css">
+        <link rel="stylesheet" href="default.css">        
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!--<meta http-equiv="content-type" content="text/html"; charset="utf-8"> -->
     </head>
     <body>
-        <label>Naam</label>
-        <input type="text" id="naam" required>
-        <label>Hoogte (in centimeters):</label>
-        <input type="number" id="hoogte" required min="0">
+        
+        <label>Naam<input type="text" id="naam" required><span id="naamFout" class="fout" hidden>Naam is een verplicth veld</span></label>        
+        <label>Hoogte (in centimeters):<input type="number" id="hoogte" required min="0"><span id="hoogteFout" class="fout" hidden>Hoogte is ongeldig</span></label>        
         <button id="toevoegen">Toevoegen</button>
         <div>
-            <span id="feedbackNaam" class="feedback" hidden>Naam is een verplicth veld</span>
-            <span id="feedbackHoogte" class="feedback" hidden>Hoogte is ongeldig</span>
+            
+            
         </div>
         <table>
             <thead><tr>
