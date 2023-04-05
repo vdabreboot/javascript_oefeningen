@@ -13,16 +13,25 @@ function toevoegen(){
         const tdHoogte = document.createElement("td");        
         const tdHoogste = document.createElement("td");
         const lijst = document.getElementById("lijst");
-        let hoogste = lijst.dataset.hoogste;
+        const lstHoogten = document.querySelectorAll("td[data-hoogte]");
+        let strLijstHoogste = lijst.dataset.hoogste;
+        let numberLijstHoogste = Number(strLijstHoogste);
         tdNaam.innerText=naam.value;
         tdHoogte.innerText=hoogte.value;
-        //tdHoogte.dataset.hoogte=int(hoogte.value);
-        //tdHoogste = hoogte.value >= lijst.dataset.hoogste?"*":"";
+        tdHoogste.dataset.hoogte=hoogte.value;
+        const numberHoogste=Number(hoogte.value);        
+        if (numberHoogste >= numberLijstHoogste){
+            lijst.dataset.hoogste = numberHoogste;
+            tdHoogste.innerText = "*";
+            lstHoogten.forEach(element => {                                
+                element.innerText = Number(element.dataset.hoogte) === numberHoogste?"*":"";                                
+            });
+        }                
         tr.appendChild(tdNaam);
         tr.appendChild(tdHoogte);        
+        tr.appendChild(tdHoogste);
         lijst.appendChild(tr);
     }
-
 }
 
 document.getElementById("toevoegen").onclick=toevoegen;
