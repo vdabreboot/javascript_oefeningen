@@ -1,0 +1,22 @@
+
+.spelbord {
+    width: 100px;
+    height: 100px;
+}
+.column {
+    width: 10px;
+    height: 10px;    
+    background-color: green;
+    display: inline;
+    margin: 0;
+    padding: 0
+}
+
+.row {
+    width: "10px";
+    height: "10px";    
+    background-color:green;
+    /*display: inline;*/
+    margin: 0;
+    padding: 0
+}
