@@ -91,3 +91,7 @@ dd {
     margin-left: 0;
     margin-bottom: 0.5em;
 }
+img {
+    width: "48px";
+    height: "48px";
+}
